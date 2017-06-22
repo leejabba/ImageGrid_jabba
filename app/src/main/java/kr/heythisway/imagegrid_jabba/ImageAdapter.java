@@ -52,7 +52,9 @@ class ImageAdapter extends BaseAdapter {
         Uri uri = Uri.withAppendedPath(MainActivity.THUMBNAILS, cursor.getString(cursor.getColumnIndex(MediaStore.Images.Thumbnails._ID)));
 
         imageView.setImageURI(uri);
+        // 이미지가 레이아웃보다 클 때 비율을 유지
         imageView.setAdjustViewBounds(true);
+        // 센터를 중심으로 그리드를 벗어난 부분을 자른다.
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
         return imageView;
